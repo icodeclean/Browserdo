@@ -18,8 +18,11 @@
         <h1>BrowserDo</h1>
       </div>
 
-      <div id ="form">
-        
+      <div>
+        <form action="">
+          Add Task: <input type="text" name="task">
+          <button type="submit">Save</button>
+        </form>
       </div>
 
       <div id ="todo">
@@ -28,11 +31,21 @@
       </div>
 
       <div id ="completed">
-        <div id = "completedheader">
+         <div id = "todoheader">
         </div>
       </div>
 
-    </div>  
+    </div>
+      <script>
+        var form = document.querySelector("form");
+        form.addEventListener("submit", function(event) {
+          var newTask = $("<div/>").append(form[0].value);
+          $("#todo").append(newTask);
+          console.log("Saving value", form[0].value);
+          $(this).find("input[type=text]").val("");
+          event.preventDefault();
+        });
+      </script>
   
   </body>
 
