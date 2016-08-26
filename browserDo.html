@@ -39,10 +39,10 @@
       <script>
         var form = document.querySelector("form");
         form.addEventListener("submit", function(event) {
-          var newTask = $("<div/>").append(form[0].value);
-          $("#todo").append(newTask);
+          var $newTask = $("<div/>").append('<input type="checkbox" />' + form[0].value);
+          $("#todo").append($newTask);
           console.log("Saving value", form[0].value);
-          $(this).find("input[type=text]").val("");
+          $(this).find("input[type=text]").val(""); //clear txt field after each input
           event.preventDefault();
         });
       </script>
