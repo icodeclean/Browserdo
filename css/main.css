@@ -17,7 +17,8 @@ font-family: "Trebuchet MS", Helvetica, sans-serif;
     max-width: 400px;
     margin: auto;
     margin-bottom: 30px;
-    font-size: 1.5em;
+    font-size: 1.3em;
+
 }
 
 #todo{
@@ -68,5 +69,8 @@ input[type=text]:focus {
   outline: none;
   background-color: #FFE96D;
   color: #5E504D;
+}
+input[type=checkbox] {
+  margin-right: 10px;
 }
 
