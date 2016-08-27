@@ -4,7 +4,7 @@
 
     <title>BrowserDo - A web based to do list</title>
 
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
 
     <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
 
@@ -12,28 +12,28 @@
 
   <body>
 
-    <div>
+    <div id = "container">
 
       <div>
-        <h1>BrowserDo</h1>
+        <h1>::: BrowserDo :::</h1>
       </div>
 
-      <div>
+      <div id = "form">
         <form action="">
-          Add Task: <input type="text" name="task">
-          <button type="submit">Save</button>
+          <input type="text" name="task" placeholder="Type a task..." >
+          <button type="submit">Add Task</button>
         </form>
       </div>
 
       <div id ="todo">
-        <div id = "todoheader">
-          Things to do
+        <div>
+          <h4>Things to do</h4>
         </div>
       </div>
 
       <div id ="completed">
-        <div id = "todoheader">
-        Completed Tasks
+        <div>
+        <h4>Completed Tasks</h4>
         </div>
       </div>
 
@@ -42,15 +42,16 @@
       <script>
 
         var form = document.querySelector("form");
+               
         form.addEventListener("submit", function(event) {
           var $newTask = $("<div/>").append('<input type="checkbox" />' + form[0].value);
           $("#todo").append($newTask);
           $(this).find("[type=text]").val(""); //clear txt field after each input
           event.preventDefault();
         });
-
+    
         $( "#todo" ).on( "click",":checkbox", function() {  //Move completed tasks 
-           $(this).hide().parent().appendTo("#completed");
+           $(this).hide().parent().addClass("strike").appendTo("#completed");
         });
 
       </script>
